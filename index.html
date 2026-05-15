@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mercedes Day 2026 — Registrácia</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --gold: #C6A962;
+  --gold-light: #D4BF7A;
+  --gold-dark: #A88C3F;
+  --bg-primary: #0A0A0A;
+  --bg-secondary: #111111;
+  --bg-card: #161616;
+  --bg-input: #1A1A1A;
+  --text-primary: #F0EDE6;
+  --text-secondary: #9A9590;
+  --text-muted: #5A5550;
+  --border: #2A2520;
+  --border-gold: rgba(198, 169, 98, 0.3);
+  --silver: #C0C0C0;
+  --silver-light: #E8E8E8;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 20%, rgba(198,169,98,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 20% 80%, rgba(198,169,98,0.04) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(198,169,98,0.04) 0%, transparent 50%),
+    var(--bg-primary);
+  z-index: 0;
+}
+
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  opacity: 0.5;
+}
+
+/* Animated light streaks */
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg at 50% 50%,
+    transparent 0deg,
+    rgba(198,169,98,0.02) 10deg,
+    transparent 20deg,
+    transparent 160deg,
+    rgba(198,169,98,0.015) 170deg,
+    transparent 180deg
+  );
+  animation: rotateGlow 30s linear infinite;
+}
+
+@keyframes rotateGlow {
+  to { transform: rotate(360deg); }
+}
+
+/* Star/Mercedes pattern */
+.star-pattern {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  opacity: 0.03;
+  z-index: 1;
+}
+
+.star-pattern svg {
+  width: 100%;
+  height: 100%;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 2rem;
+  animation: fadeInUp 1.2s ease-out;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.luxury-label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.luxury-label::before,
+.luxury-label::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.luxury-label::before { right: calc(100% + 20px); }
+.luxury-label::after { left: calc(100% + 20px); }
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 800;
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  letter-spacing: 0.08em;
+  line-height: 0.95;
+  background: linear-gradient(180deg,
+    var(--silver-light) 0%,
+    var(--silver) 30%,
+    #999 60%,
+    var(--silver-light) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+  filter: drop-shadow(0 2px 10px rgba(192,192,192,0.1));
+  margin-bottom: 0.1em;
+}
+
+.hero-day {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  letter-spacing: 0.4em;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.hero-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 1.1rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 3rem;
+}
+
+.hero-tagline span {
+  margin: 0 0.5em;
+  opacity: 0.5;
+}
+
+/* Event details strip */
+.event-details {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.detail-item {
+  text-align: center;
+  position: relative;
+}
+
+.detail-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: -1.5rem;
+  top: 10%;
+  height: 80%;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, var(--border-gold), transparent);
+}
+
+.detail-icon {
+  width: 20px;
+  height: 20px;
+  margin: 0 auto 0.5rem;
+  fill: var(--gold);
+  opacity: 0.7;
+}
+
+.detail-label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+}
+
+.detail-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.detail-value small {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 0.15rem;
+}
+
+/* CTA Button */
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--bg-primary);
+  background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
+  border: none;
+  padding: 1.1rem 3rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  transition: all 0.4s ease;
+}
+
+.cta-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--gold), #E0D090, var(--gold));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.cta-btn:hover::before { opacity: 1; }
+.cta-btn span { position: relative; z-index: 1; }
+.cta-btn svg { position: relative; z-index: 1; width: 16px; height: 16px; }
+
+/* Scroll indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  animation: bounce 2s infinite;
+}
+
+.scroll-indicator svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--gold);
+  opacity: 0.4;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ===== FEATURES STRIP ===== */
+.features-strip {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 3rem 2rem;
+}
+
+.features-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+}
+
+.feature-item {
+  text-align: center;
+  padding: 1rem 0.5rem;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.feature-item:nth-child(1) { animation-delay: 0.1s; }
+.feature-item:nth-child(2) { animation-delay: 0.2s; }
+.feature-item:nth-child(3) { animation-delay: 0.3s; }
+.feature-item:nth-child(4) { animation-delay: 0.4s; }
+.feature-item:nth-child(5) { animation-delay: 0.5s; }
+.feature-item:nth-child(6) { animation-delay: 0.6s; }
+
+.feature-icon {
+  font-size: 1.6rem;
+  margin-bottom: 0.75rem;
+  filter: grayscale(0.2);
+}
+
+.feature-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 0.3rem;
+}
+
+.feature-desc {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* ===== REGISTRATION SECTION ===== */
+.registration {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 5rem 2rem 6rem;
+  position: relative;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.section-overline {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 2.2rem;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.section-divider {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 1rem auto;
+}
+
+.section-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Form */
+.reg-form {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 3rem;
+  position: relative;
+}
+
+.reg-form::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.form-group-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(198,169,98,0.15);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.form-group-title svg {
+  width: 16px;
+  height: 16px;
+  stroke: var(--gold);
+  opacity: 0.6;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.form-row.full {
+  grid-template-columns: 1fr;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.field label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.field label .required {
+  color: var(--gold);
+  margin-left: 2px;
+}
+
+.field input,
+.field select,
+.field textarea {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  padding: 0.85rem 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+  width: 100%;
+  -webkit-appearance: none;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 1px rgba(198,169,98,0.2), inset 0 0 20px rgba(198,169,98,0.03);
+}
+
+.field select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C6A962' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+.field select option {
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.6;
+}
+
+.form-separator {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  margin: 2rem 0;
+}
+
+/* Checkbox */
+.checkbox-field {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin: 1.5rem 0 2rem;
+  cursor: pointer;
+}
+
+.checkbox-field input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox-custom {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  border: 1px solid var(--border);
+  background: var(--bg-input);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  margin-top: 2px;
+}
+
+.checkbox-field input:checked + .checkbox-custom {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+
+.checkbox-custom svg {
+  width: 10px;
+  height: 10px;
+  stroke: var(--bg-primary);
+  stroke-width: 3;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.checkbox-field input:checked + .checkbox-custom svg {
+  opacity: 1;
+}
+
+.checkbox-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.checkbox-label a {
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(198,169,98,0.3);
+}
+
+/* Submit */
+.submit-btn {
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--bg-primary);
+  background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
+  border: none;
+  padding: 1.2rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.submit-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #E0D090, var(--gold-light), var(--gold));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.submit-btn:hover::before { opacity: 1; }
+.submit-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 30px rgba(198,169,98,0.25); }
+.submit-btn span { position: relative; z-index: 1; }
+
+.submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Success state */
+.success-state {
+  display: none;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.success-state.active {
+  display: block;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.success-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 2rem;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-icon svg {
+  width: 36px;
+  height: 36px;
+  stroke: var(--gold);
+  stroke-width: 2;
+}
+
+.success-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.success-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Counter */
+.counter-strip {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+}
+
+.counter-label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.counter-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.counter-value span {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-family: 'Cormorant Garamond', serif;
+  margin-left: 0.5rem;
+}
+
+/* Countdown */
+.countdown-section {
+  text-align: center;
+  padding: 3rem 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.countdown-label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.countdown-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.countdown-item {
+  text-align: center;
+  min-width: 70px;
+}
+
+.countdown-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.countdown-unit {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: 0.4rem;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 3rem 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.footer-motto {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 1.15rem;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.footer-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+}
+
+/* Error state */
+.field.error input,
+.field.error select,
+.field.error textarea {
+  border-color: #8B3A3A;
+}
+
+.field .error-msg {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65rem;
+  color: #C77;
+  letter-spacing: 0.05em;
+  display: none;
+}
+
+.field.error .error-msg {
+  display: block;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .event-details {
+    gap: 1.5rem;
+  }
+
+  .detail-item:not(:last-child)::after {
+    display: none;
+  }
+
+  .reg-form {
+    padding: 2rem 1.5rem;
+  }
+
+  .luxury-label::before,
+  .luxury-label::after {
+    width: 30px;
+  }
+
+  .countdown-grid {
+    gap: 1.25rem;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-bg"></div>
+
+  <div class="star-pattern">
+    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="200" cy="200" r="180" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
+      <circle cx="200" cy="200" r="120" fill="none" stroke="currentColor" stroke-width="0.3" opacity="0.2"/>
+      <line x1="200" y1="20" x2="200" y2="380" stroke="currentColor" stroke-width="0.3" opacity="0.15"/>
+      <line x1="44" y1="290" x2="356" y2="110" stroke="currentColor" stroke-width="0.3" opacity="0.15"/>
+      <line x1="44" y1="110" x2="356" y2="290" stroke="currentColor" stroke-width="0.3" opacity="0.15"/>
+    </svg>
+  </div>
+
+  <div class="hero-content">
+    <div class="luxury-label">Luxury Automotive Event</div>
+    <h1 class="hero-title">MERCEDES</h1>
+    <div class="hero-day">D&nbsp;A&nbsp;Y</div>
+    <div class="hero-tagline">
+      Tradition <span>·</span> Performance <span>·</span> Elegance
+    </div>
+
+    <div class="event-details">
+      <div class="detail-item">
+        <div class="detail-label">Dátum</div>
+        <div class="detail-value">30. mája 2026<small>Sobota</small></div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label">Miesto</div>
+        <div class="detail-value">ATB Slovakia<small>Košická cesta, Rimavská Sobota</small></div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label">Formát</div>
+        <div class="detail-value">Zraz & Spanilá jazda<small>Jedna značka. Jedna vášeň.</small></div>
+      </div>
+    </div>
+
+    <a href="#registracia" class="cta-btn">
+      <span>Registrovať sa</span>
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 8h10M9 4l4 4-4 4"/>
+      </svg>
+    </a>
+  </div>
+
+  <div class="scroll-indicator">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+      <path d="M7 10l5 5 5-5"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<div class="features-strip">
+  <div class="features-grid">
+    <div class="feature-item">
+      <div class="feature-icon">🏛️</div>
+      <div class="feature-title">Veterány</div>
+      <div class="feature-desc">Legendy minulosti</div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">🏎️</div>
+      <div class="feature-title">AMG Zone</div>
+      <div class="feature-desc">Výkon bez kompromisov</div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">🔧</div>
+      <div class="feature-title">Tuning Cars</div>
+      <div class="feature-desc">Štýl a individualita</div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">🛣️</div>
+      <div class="feature-title">Spanilá jazda</div>
+      <div class="feature-desc">Spoločná cesta</div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">🍷</div>
+      <div class="feature-title">Food & Drinks</div>
+      <div class="feature-desc">Chuť zážitku</div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">🎵</div>
+      <div class="feature-title">Night Atmosphere</div>
+      <div class="feature-desc">Hudba · Svetlá · Vibes</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== COUNTDOWN ===== -->
+<div class="countdown-section">
+  <div class="countdown-label">Do štartu zostáva</div>
+  <div class="countdown-grid">
+    <div class="countdown-item">
+      <div class="countdown-num" id="cd-days">--</div>
+      <div class="countdown-unit">Dní</div>
+    </div>
+    <div class="countdown-item">
+      <div class="countdown-num" id="cd-hours">--</div>
+      <div class="countdown-unit">Hodín</div>
+    </div>
+    <div class="countdown-item">
+      <div class="countdown-num" id="cd-mins">--</div>
+      <div class="countdown-unit">Minút</div>
+    </div>
+    <div class="countdown-item">
+      <div class="countdown-num" id="cd-secs">--</div>
+      <div class="countdown-unit">Sekúnd</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== REGISTRATION ===== -->
+<section class="registration" id="registracia">
+  <div class="section-header">
+    <div class="section-overline">Registrácia</div>
+    <h2 class="section-title">Zaregistrujte sa</h2>
+    <div class="section-divider"></div>
+    <p class="section-subtitle">Pripojte sa k najexkluzívnejšiemu stretnutiu milovníkov značky Mercedes-Benz na Gemeri.</p>
+  </div>
+
+  <!-- Form -->
+  <div class="reg-form" id="regForm">
+    <form id="registrationForm" novalidate>
+      <!-- Personal info -->
+      <div class="form-group-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Osobné údaje
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label>Meno <span class="required">*</span></label>
+          <input type="text" id="firstName" placeholder="Vaše meno" required>
+          <span class="error-msg">Prosím, zadajte meno</span>
+        </div>
+        <div class="field">
+          <label>Priezvisko <span class="required">*</span></label>
+          <input type="text" id="lastName" placeholder="Vaše priezvisko" required>
+          <span class="error-msg">Prosím, zadajte priezvisko</span>
+        </div>
+      </div>
+
+      <div class="form-row full">
+        <div class="field">
+          <label>E-mail <span class="required">*</span></label>
+          <input type="email" id="email" placeholder="vas@email.sk" required>
+          <span class="error-msg">Prosím, zadajte platný e-mail</span>
+        </div>
+      </div>
+
+      <div class="form-row full">
+        <div class="field">
+          <label>Telefón</label>
+          <input type="tel" id="phone" placeholder="+421 9XX XXX XXX">
+        </div>
+      </div>
+
+      <div class="form-separator"></div>
+
+      <!-- Vehicle info -->
+      <div class="form-group-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="1" y="6" width="22" height="12" rx="2"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/><path d="M5 6l2-3h10l2 3"/></svg>
+        Údaje o vozidle
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label>Značka <span class="required">*</span></label>
+          <select id="brand" required>
+            <option value="" disabled selected>Vyberte značku</option>
+            <option value="Mercedes-Benz">Mercedes-Benz</option>
+            <option value="Mercedes-AMG">Mercedes-AMG</option>
+            <option value="Mercedes-Maybach">Mercedes-Maybach</option>
+            <option value="Smart">Smart (by Mercedes)</option>
+            <option value="Iné">Iné</option>
+          </select>
+          <span class="error-msg">Prosím, vyberte značku</span>
+        </div>
+        <div class="field">
+          <label>Model <span class="required">*</span></label>
+          <input type="text" id="model" placeholder="napr. E 220d, AMG GT, W124..." required>
+          <span class="error-msg">Prosím, zadajte model</span>
+        </div>
+      </div>
+
+      <div class="form-row full">
+        <div class="field">
+          <label>EČV (evidenčné číslo) <span class="required">*</span></label>
+          <input type="text" id="plate" placeholder="napr. RS-123AB" required style="text-transform: uppercase;">
+          <span class="error-msg">Prosím, zadajte EČV</span>
+        </div>
+      </div>
+
+      <div class="form-row full">
+        <div class="field">
+          <label>Prečo je vaše vozidlo jedinečné?</label>
+          <textarea id="uniqueness" placeholder="Napíšte nám, čo robí vaše auto výnimočným — história, úpravy, príbeh..."></textarea>
+        </div>
+      </div>
+
+      <div class="form-separator"></div>
+
+      <!-- Consent -->
+      <label class="checkbox-field">
+        <input type="checkbox" id="consent" required>
+        <span class="checkbox-custom">
+          <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5"/></svg>
+        </span>
+        <span class="checkbox-label">
+          Súhlasím so spracovaním osobných údajov za účelom registrácie na Mercedes Day 2026 v súlade s <a href="#">GDPR</a>.
+        </span>
+      </label>
+
+      <button type="submit" class="submit-btn" id="submitBtn">
+        <span>Potvrdiť registráciu</span>
+      </button>
+    </form>
+  </div>
+
+  <!-- Success -->
+  <div class="success-state" id="successState">
+    <div class="success-icon">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7"/></svg>
+    </div>
+    <h3 class="success-title">Registrácia úspešná</h3>
+    <p class="success-text">Ďakujeme za vašu registráciu. Na zadaný e-mail vám zašleme potvrdenie s ďalšími informáciami o Mercedes Day 2026.</p>
+  </div>
+</section>
+
+<!-- ===== COUNTER ===== -->
+<div class="counter-strip">
+  <div class="counter-label">Počet registrovaných účastníkov</div>
+  <div class="counter-value" id="regCounter">0<span>účastníkov</span></div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-motto">Jedna značka. Jedna vášeň. Jeden deň.</div>
+  <div class="footer-text">Mercedes Day 2026 · ATB Slovakia · Rimavská Sobota</div>
+</footer>
+
+<script>
+// ===== COUNTDOWN =====
+function updateCountdown() {
+  const target = new Date('2026-05-30T09:00:00');
+  const now = new Date();
+  const diff = target - now;
+
+  if (diff <= 0) {
+    document.getElementById('cd-days').textContent = '0';
+    document.getElementById('cd-hours').textContent = '0';
+    document.getElementById('cd-mins').textContent = '0';
+    document.getElementById('cd-secs').textContent = '0';
+    return;
+  }
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+  document.getElementById('cd-days').textContent = days;
+  document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+  document.getElementById('cd-mins').textContent = String(mins).padStart(2, '0');
+  document.getElementById('cd-secs').textContent = String(secs).padStart(2, '0');
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// Registration count managed in Google Sheets
+
+// ===== FORM VALIDATION & SUBMIT =====
+const form = document.getElementById('registrationForm');
+const requiredFields = ['firstName', 'lastName', 'email', 'brand', 'model', 'plate'];
+
+// Live validation clear
+requiredFields.forEach(id => {
+  const el = document.getElementById(id);
+  el.addEventListener('input', () => {
+    el.closest('.field').classList.remove('error');
+  });
+});
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  let valid = true;
+
+  // Validate required
+  requiredFields.forEach(id => {
+    const el = document.getElementById(id);
+    const field = el.closest('.field');
+    if (!el.value.trim()) {
+      field.classList.add('error');
+      valid = false;
+    } else {
+      field.classList.remove('error');
+    }
+  });
+
+  // Email format
+  const emailEl = document.getElementById('email');
+  if (emailEl.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value)) {
+    emailEl.closest('.field').classList.add('error');
+    valid = false;
+  }
+
+  // Consent
+  const consentEl = document.getElementById('consent');
+  if (!consentEl.checked) {
+    valid = false;
+    consentEl.closest('.checkbox-field').style.outline = '1px solid #8B3A3A';
+    setTimeout(() => {
+      consentEl.closest('.checkbox-field').style.outline = '';
+    }, 2000);
+  }
+
+  if (!valid) return;
+
+  // Collect data
+  const data = {
+    firstName: document.getElementById('firstName').value.trim(),
+    lastName: document.getElementById('lastName').value.trim(),
+    email: document.getElementById('email').value.trim(),
+    phone: document.getElementById('phone').value.trim(),
+    brand: document.getElementById('brand').value,
+    model: document.getElementById('model').value.trim(),
+    plate: document.getElementById('plate').value.trim().toUpperCase(),
+    uniqueness: document.getElementById('uniqueness').value.trim(),
+    timestamp: new Date().toISOString()
+  };
+
+  // Disable button, show loading
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.querySelector('span').textContent = 'Odosielam...';
+
+  // ===== SEND TO GOOGLE SHEETS =====
+  // Replace this URL with YOUR Google Apps Script Web App URL
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzYAbCUBJ9QOgm1LdilN1RHtegnQMDKxGgdic12_G-w6ssUN7laOhBu6aMwuYHv6m2l/exec';
+
+  fetch(SCRIPT_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  })
+  .then(() => {
+    // Show success
+    document.getElementById('regForm').style.display = 'none';
+    const ss = document.getElementById('successState');
+    ss.classList.add('active');
+    ss.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  })
+  .catch(err => {
+    console.error('Chyba pri odosielaní:', err);
+    alert('Nastala chyba pri odosielaní. Skúste to prosím znova.');
+    btn.disabled = false;
+    btn.querySelector('span').textContent = 'Potvrdiť registráciu';
+  });
+});
+</script>
+
+</body>
+</html>
