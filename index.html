@@ -1121,7 +1121,21 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
-// Registration count managed in Google Sheets
+// Registration count from Google Sheets
+const COUNTER_URL = 'https://script.google.com/macros/s/AKfycbzm8azYlbAXakkobrgxtNSNsmOFG7L3jwTHT4EP7Lr7ew6UxgyAKkHiNG1N7k4oKXM/exec';
+
+function loadRegCount() {
+  fetch(COUNTER_URL)
+    .then(r => r.json())
+    .then(d => {
+      const el = document.getElementById('regCounter');
+      if (el && d.count !== undefined) {
+        el.innerHTML = d.count + '<span>účastníkov</span>';
+      }
+    })
+    .catch(() => {});
+}
+loadRegCount();
 
 // ===== FORM VALIDATION & SUBMIT =====
 const form = document.getElementById('registrationForm');
@@ -1205,6 +1219,8 @@ form.addEventListener('submit', function(e) {
     const ss = document.getElementById('successState');
     ss.classList.add('active');
     ss.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    // Refresh counter after short delay
+    setTimeout(loadRegCount, 3000);
   })
   .catch(err => {
     console.error('Chyba pri odosielaní:', err);
