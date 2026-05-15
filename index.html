@@ -662,6 +662,27 @@ body {
   margin: 0 auto;
 }
 
+/* Poster */
+.poster-section {
+  background: var(--bg-primary);
+  padding: 0 2rem 3rem;
+}
+
+.poster-frame {
+  max-width: 580px;
+  margin: 0 auto;
+  border: 1px solid var(--border);
+  padding: 8px;
+  background: var(--bg-card);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px rgba(198,169,98,0.06);
+}
+
+.poster-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* Counter */
 .counter-strip {
   text-align: center;
@@ -844,7 +865,7 @@ body {
     <div class="event-details">
       <div class="detail-item">
         <div class="detail-label">Dátum</div>
-        <div class="detail-value">30. mája 2026<small>Sobota</small></div>
+        <div class="detail-value">30. mája 2026<small>Sobota · 9:00</small></div>
       </div>
       <div class="detail-item">
         <div class="detail-label">Miesto</div>
@@ -904,6 +925,17 @@ body {
       <div class="feature-title">Night Atmosphere</div>
       <div class="feature-desc">Hudba · Svetlá · Vibes</div>
     </div>
+  </div>
+</div>
+
+<!-- ===== POSTER ===== -->
+<div class="poster-section">
+  <div class="section-header" style="padding-top: 3rem;">
+    <div class="section-overline">Oficiálny plagát</div>
+    <div class="section-divider"></div>
+  </div>
+  <div class="poster-frame">
+    <img src="poster.jpg" alt="Mercedes Day 2026 — Oficiálny plagát" class="poster-img" loading="lazy">
   </div>
 </div>
 
@@ -1159,7 +1191,7 @@ form.addEventListener('submit', function(e) {
 
   // ===== SEND TO GOOGLE SHEETS =====
   // Replace this URL with YOUR Google Apps Script Web App URL
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzYAbCUBJ9QOgm1LdilN1RHtegnQMDKxGgdic12_G-w6ssUN7laOhBu6aMwuYHv6m2l/exec';
+  const SCRIPT_URL = 'TU_VLOZ_SVOJU_APPS_SCRIPT_URL';
 
   fetch(SCRIPT_URL, {
     method: 'POST',
